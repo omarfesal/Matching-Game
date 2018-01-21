@@ -31,6 +31,14 @@ $(".restart").click(function(){
 });
 
 
+// shuffle cards
+let arrayOfCards = $(".card");
+$(".deck").empty();
+let shuffledCardArray = shuffle(arrayOfCards);
+$(".deck").append(shuffledCardArray);
+
+
+
 
 
 /*
