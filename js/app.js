@@ -1,7 +1,6 @@
 /*
  * Create a list that holds all of your cards
- */
-
+ */ 
 
 /*
  * Display the cards on the page
@@ -24,6 +23,14 @@ function shuffle(array) {
 
     return array;
 }
+
+
+// reset all cards
+$(".restart").click(function(){
+   $(".card").removeClass("open match"); 
+});
+
+
 
 
 /*
