@@ -111,5 +111,21 @@ function checkCompleteness(){
     }
 }
 
+// calc Star
+function calcStars(){
+    
+    if(moves==4){
+         $(star3).attr("class","fa fa-star-o");
+         stars=2;
+    }else if(moves==8){
+        $(star2).attr("class","fa fa-star-o");
+        stars=1;
+    }else if(moves == 12){
+        $(star1).attr("class","fa fa-star-o");
+        stars=0;
+
+    }
+
+}
 
 
