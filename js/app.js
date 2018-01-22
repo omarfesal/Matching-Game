@@ -128,4 +128,11 @@ function calcStars(){
 
 }
 
+// reset where clicking on "Play Again"
+
+$("div").on("click","#again",function(){
+    playAgain();
+});
+
+
 
