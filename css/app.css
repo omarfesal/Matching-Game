@@ -74,6 +74,34 @@ h1 {
 
 }
 
+.deck .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+    -webkit-animation-name: match ; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: .5s; /* Safari 4.0 - 8.0 */
+    animation-name: match;
+    animation-duration: .5s;
+}
+
+
+@keyframes match{
+    0% {transform: translate(5px,0);}
+    50% {transform: translate(-10px,0);}
+    100% {transform: translate(5px,0);}
+}
+.card.unmatch {
+    -webkit-animation-name: unmatch; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 0.4s; /* Safari 4.0 - 8.0 */
+    animation-name: unmatch;
+    animation-duration: 0.4s;
+}
+@keyframes unmatch{
+    0% {transform: rotate(5deg);background-color: #492e2e}
+    50% {transform: rotate(-10deg);background-color: #492e2e}
+    100% {transform: rotate(5deg); background-color: #492e2e}
+}
+
 /*
  * Styles for the Score Panel
  */
