@@ -103,5 +103,13 @@ function checkCard(item){
 
     }
 }
+// check if user finish all cards
+function checkCompleteness(){
+    let len = $(".match").length;
+    if(len==16){
+        $(".deck").append("<div class='congratsTab' ><span></span> <h1>Congratulations! You Won!</h1> <p> with " + moves + " Moves and "+ stars +" Stars </p> <button id='again' >Play Again</button></div>");
+    }
+}
+
 
 
