@@ -1,15 +1,16 @@
 # Memory Game Project
 
-## Table of Contents
+## How the game is played
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+The Game have 4x4 Cards. choose Two cards by are correct until 16 cards matched.
+To Choose Card : Click on it:
+You Can also Reset Game by clicking on reset icon
+Moves: is the Number of correct & uncorret match of cards
+Stars: after Number of clicking on cards it will be reduced !!
 
-## Instructions
+## Expectaions
+Funny , Easy and understandable
 
-To install this pull it and run `index.html`
-it's easy !! .. 
+## Game dependencies
 
-## Contributing
-
-sorry, we don't accept pull requests
+The browser should support HTML5
