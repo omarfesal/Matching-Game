@@ -1,4 +1,4 @@
-var counter = 0,
+let counter = 0,
     arrayOfCards = $(".card"),
     moves = 0,
     arrOfitems = [],
@@ -9,7 +9,7 @@ var counter = 0,
     shuffledCardArray = [];
         
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -22,7 +22,6 @@ function shuffle(array) {
     return array;
 }
 
-
 // shuffle cards
 function ShuffleOnCards(){
     $(".deck").innetHTML = "";
@@ -32,6 +31,36 @@ function ShuffleOnCards(){
 
 ShuffleOnCards();
 
+
+
+// timer
+
+let minutesLabel = document.getElementById("minutes"),
+    secondsLabel = document.getElementById("seconds"),
+    totalSeconds = 0,
+    seconds = 0,
+    minutes = 0,
+    TimerId = setInterval(setTime, 1000);
+
+function setTime() {
+    ++totalSeconds;
+    seconds =  pad(totalSeconds % 60);
+    minutes = pad(parseInt(totalSeconds / 60));
+    secondsLabel.innerHTML = seconds;
+    minutesLabel.innerHTML = minutes ;
+}
+
+function pad(val) {
+  var valString = val + "";
+  if (valString.length < 2) {
+    return "0" + valString;
+  } else {
+    return valString;
+  }
+}
+
+    
+    
 //reset All cards 
 function playAgain(){
    $(".card").removeClass("open match unmatch");
@@ -43,6 +72,13 @@ function playAgain(){
    $(star1).attr("class","fa fa-star");
    $(star2).attr("class","fa fa-star");
    $(star3).attr("class","fa fa-star");
+
+// clear Timer
+   clearInterval(TimerId);
+   secondsLabel.innerHTML = "00";
+   minutesLabel.innerHTML = "00";
+   totalSeconds = 0;       
+   TimerId = setInterval(setTime, 1000);
 
 }
 
@@ -107,23 +143,22 @@ function checkCard(item){
 function checkCompleteness(){
     let len = $(".match").length;
     if(len==16){
-        $(".deck").append("<div class='congratsTab' ><span></span> <h1>Congratulations! You Won!</h1> <p> with " + moves + " Moves and "+ stars +" Stars </p> <button id='again' >Play Again</button></div>");
+        clearInterval(TimerId);
+
+        $(".deck").append("<div class='congratsTab' ><span></span> <h1>Congratulations! You Won!</h1> <p> with " + moves + " Moves and "+ stars +" Stars </p> <p>time taken: " + minutes + ":" + seconds +"</p> <button id='again' >Play Again</button></div>");
+        
     }
 }
 
 // calc Star
 function calcStars(){
     
-    if(moves==4){
+    if(moves==8){
          $(star3).attr("class","fa fa-star-o");
          stars=2;
-    }else if(moves==8){
+    }else if(moves==14){
         $(star2).attr("class","fa fa-star-o");
         stars=1;
-    }else if(moves == 12){
-        $(star1).attr("class","fa fa-star-o");
-        stars=0;
-
     }
 
 }
@@ -133,6 +168,5 @@ function calcStars(){
 $("div").on("click","#again",function(){
     playAgain();
 });
-
 
 
